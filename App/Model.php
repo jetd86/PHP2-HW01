@@ -28,14 +28,14 @@ abstract class Model
         if (!empty($data)) {
             return reset($data);
         }
-        return null;
+        return false;
     }
 
 
     //Метод для реализации техники записи Active Record
-    public function insert()
+    public function insert(): void
     {
-        $props = get_object_vars($this); // передаем исследемый объект через $this
+        $props = get_object_vars($this);
         $fields = [];
         $binds = [];
         foreach ($props as $name => $value) {
@@ -58,9 +58,8 @@ abstract class Model
     public static function findAll()
     {
         $db = new Models\DB();
-        $data = $db->query(
+        return $db->query(
             "SELECT * FROM " . static::$table,
             static::class); //'App\Models\Article'
-        return $data;
     }
 }

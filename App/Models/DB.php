@@ -23,33 +23,25 @@ class DB
 
     /**
      * @param string $sql
-     * @param array $data
+     * @param array $params
      * @return bool
      */
-    public function execute(string $sql, array $data = [])
+    public function execute(string $sql, array $params = []): bool
     {
-        return $this->DBH->prepare($sql)->execute($data);
+        return $this->DBH->prepare($sql)->execute($params);
     }
 
     /**
      * @param string $sql
      * @param string $class
-     * @param array $data
+     * @param array $params
      * @return array
      */
     public function query(string $sql, string $class, array $params = [])
     {
         $sth = $this->DBH->prepare($sql);
         $sth->execute($params);
-        $data = $sth->fetchAll(\PDO::FETCH_CLASS, $class);
-
-//        $ret = [];
-//        foreach ($data as $rec) {
-//            $r = new $class($rec);
-//            $ret[] = $r;
-//        }
-
-        return $data;
+        return isset($class) ? $sth->fetchAll(\PDO::FETCH_CLASS, $class) : $sth->fetchAll();
     }
 
 }
