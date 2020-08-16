@@ -69,14 +69,8 @@ abstract class Model
 
         $db = new Models\DB();
 
-        $sql = "SELECT id FROM " . static::$table . " WHERE id = :id" ;
-
-        if($db->issetRow($sql,[':id' => $this->id])){
-            $sql = "UPDATE " . static::$table . " SET " . implode(', ', $fields) . "  WHERE id = :id";
-            $db->execute($sql, $data);
-        } else {
-            $this->insert();
-        }
+        $sql = "UPDATE " . static::$table . " SET " . implode(', ', $fields) . "  WHERE id = :id";
+        $db->execute($sql, $data);
 
     }
 
@@ -87,5 +81,13 @@ abstract class Model
         return $db->query(
             "SELECT * FROM " . static::$table,
             static::class); //'App\Models\Article'
+    }
+
+
+    public static function getLimitRows(int $limit): array
+    {
+        $db =  new Models\DB();
+        $sql = 'SELECT * FROM ' . static::$table . ' ORDER BY id DESC LIMIT ' . $limit;
+        return $db->query($sql, static::class); //'App\Models\Article'
     }
 }

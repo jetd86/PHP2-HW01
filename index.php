@@ -2,14 +2,9 @@
 require_once  __DIR__ . '/autoload.php';
 
 
+$article = App\Models\Article::getLimitRows(3);
 
 
-
-
-$article = new App\Models\Article();
-$article->id = 13;
-$article->title = 'Tesfasdt';
-$article->contents = 'Содержанasd7890fие';
-$article->update();
-
+include __DIR__ . '/templates/news_html.php';
+include __DIR__ . '/templates/footer_html.php';
 

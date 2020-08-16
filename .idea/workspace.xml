@@ -2,16 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88a04f60-22ab-4d03-910f-f27a2fe6da98" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/article_html.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/footer_html.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/news_html.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/styles.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/article.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/db.sql" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Model.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Model.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/App/Models/Article.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/Article.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/App/Models/DB.php" beforeDir="false" afterPath="$PROJECT_DIR$/App/Models/DB.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/article_html.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/article_html.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/news_html.php" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news_html.php" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -45,24 +45,17 @@
         <item name="php2_lesson1@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="php2_lesson1@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="php2_lesson1: schema" type="76f4a085:MysqlImplModel$Schema" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="php2_lesson1@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="php2_lesson1: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="news: table" type="285a2a93:MysqlImplModel$Table" />
-      </path>
     </expand>
     <select />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PhpDebugGeneral" xdebug_force_break_when_no_path_mapping="false" xdebug_force_break_when_outside_project="false" />
+  <component name="PhpServers">
+    <servers>
+      <server host="php2-hw01" id="98653cf9-bb75-414e-bfca-19c487b9fb74" name="php2-hw01" />
+    </servers>
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1g95iXUW3utCoShgkpw7SLwjoxi" />
@@ -70,15 +63,16 @@
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../php2.local" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.debug" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\server\OSPanel\domains\PHP2-HW01" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\server\OSPanel\domains\PHP2-HW01\templates" />
       <recent name="E:\server\OSPanel\domains\PHP2-HW1" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="E:\server\OSPanel\domains\PHP2-HW01" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -110,17 +104,7 @@
     <option name="allServicesViewState">
       <serviceView>
         <treeState>
-          <expand>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6010b1f7" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-            </path>
-            <path>
-              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@6010b1f7" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceNode@479d54bb" type="9fbbdea:ServiceModel$ServiceNode" />
-            </path>
-          </expand>
+          <expand />
           <select />
         </treeState>
       </serviceView>
@@ -137,7 +121,8 @@
       <option name="presentableId" value="Default" />
       <updated>1597514094522</updated>
       <workItem from="1597514095827" duration="7263000" />
-      <workItem from="1597560132608" duration="15232000" />
+      <workItem from="1597560132608" duration="19166000" />
+      <workItem from="1597587212766" duration="8875000" />
     </task>
     <servers />
   </component>
@@ -149,10 +134,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="index.php">
+        <watch expression="$_SERVER" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
