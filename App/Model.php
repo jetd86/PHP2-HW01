@@ -39,9 +39,7 @@ abstract class Model
         $fields = [];
         $binds = [];
         foreach ($props as $name => $value) {
-            if ($name == 'id') {
-                continue;
-            }
+            if ($name == 'id') continue;
             $fields[] = $name;
             $binds[] = ":" . $name;
             $data[':' . $name] = $value;
@@ -49,9 +47,37 @@ abstract class Model
 
         $sql = "INSERT INTO " . static::$table . " (" . implode(',', $fields) . ")"
             . " VALUES (" . implode(',', $binds) . ")";
+        $db = new Models\DB();
+
+        $db->execute($sql, $data);
+        $this->id = $db->getLastInsertedId();
+    }
+
+
+    public function update()
+    {
+        $props = get_object_vars($this);
+        $fields = [];
+
+        foreach ($props as $name => $value) {
+            if ($name === 'id') continue;
+            $fields[] = $name . ' = ' . ':' . $name;
+            $data[':' . $name] = $value;
+        }
+
+        $data[':id'] = $this->id;
 
         $db = new Models\DB();
-        $db->execute($sql, $data);
+
+        $sql = "SELECT id FROM " . static::$table . " WHERE id = :id" ;
+
+        if($db->issetRow($sql,[':id' => $this->id])){
+            $sql = "UPDATE " . static::$table . " SET " . implode(', ', $fields) . "  WHERE id = :id";
+            $db->execute($sql, $data);
+        } else {
+            $this->insert();
+        }
+
     }
 
 

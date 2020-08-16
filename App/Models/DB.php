@@ -44,4 +44,21 @@ class DB
         return isset($class) ? $sth->fetchAll(\PDO::FETCH_CLASS, $class) : $sth->fetchAll();
     }
 
+    public function getLastInsertedId()
+    {
+        return $this->DBH->lastInsertId();
+    }
+
+
+    /**
+     * @param string $sql
+     * @param array $params
+     * @return bool
+     */
+    public function issetRow(string $sql, array $params = []): bool
+    {
+        $sth = $this->DBH->prepare($sql);
+        $sth->execute($params);
+        return $sth->rowCount();
+    }
 }

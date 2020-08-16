@@ -4,12 +4,12 @@ require_once  __DIR__ . '/autoload.php';
 
 
 
-var_dump(App\Models\Article::findById(1));
 
 
+$article = new App\Models\Article();
+$article->id = 13;
+$article->title = 'Tesfasdt';
+$article->contents = 'Содержанasd7890fие';
+$article->update();
 
-//$article = new App\Models\Article();
-//$article->title = 'Test';
-//$article->contents = 'Содержание';
-//$article->insert();
 
